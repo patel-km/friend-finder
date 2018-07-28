@@ -1,17 +1,18 @@
+var friends = require('../data/friends');
+
 // Exporting
-module.exports = (function() {
+module.exports = (function(app) {
     'use strict';
 
-    var apiRoutes = require('express').Router();
-
     // display json of all friend objects
-    api.get('/api/friends', function(req, res){
+    app.get('/api/friends', function(req, res){
         return res.json(friends);
     });
 
     // handles incoming data for new friend objects
-    api.post('/api/friends', function (req, res){
+    app.post('/api/friends', function (req, res){
+        console.log("REQ: ", req.body)
     });
 
-    return apiRoutes;
-}) ();
+    
+}) 

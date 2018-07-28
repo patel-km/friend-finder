@@ -1,19 +1,17 @@
 // Export these routes
-module.exports = (function() {
-    'use strict';
+var path = require('path');
 
-    var htmlRoutes = require('express').Router();
+module.exports  = (function(app) {
+    'use strict';
 
     // route to survey page
     app.get('/survey', function (req, res){
-        res.sendFile(path.join(__dirname, "survey.html"))
+        res.sendFile(path.join(__dirname, "../public/survey.html"))
     });
 
     // route to home page
     app.get('/', function(req, res){
-        res.sendFile(path.join(__dirname, "home.html"));
+        res.sendFile(path.join(__dirname, "../public/home.html"));
     });
-
-
-    return htmlRoutes;
 });
+
