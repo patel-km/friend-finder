@@ -22,10 +22,95 @@
 <body>
     <h2>Show yourself</h2>
 
-    <h3>Questions</h3>
-   
-    
+    <div id="questions">
+        <h3>Questions</h3>
+        <!-- questions go here -->
 
+        <!-- This is how the answers for each question are formatted.
+
+            <select class="form-control" id="options">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select> 
+
+        -->
+    </div>
+    
+    <button type="button" id="match">Find my match</button>
     
 </body>
+
+<script>
+    var questions = [
+        {
+            question: "Your mind is always buzzing with unexplored ideas and plans.",
+            answers: [],
+        },
+        {
+            question: "Generally speaking, you rely more on your experience than your imagination.",
+            answers: [],
+        },
+        {
+            question: "You find it easy to stay relaxed and focused even when there is some pressure.",
+            answers: [],
+        },
+        {
+            question: "You rarely do something just out of sheer curiosity.",
+            answers: [],
+        },
+        {
+            question: "People can rarely upset you.",
+            answers: [],
+        },
+        {
+            question: "It is often difficult for you to relate to other people’s feelings.",
+            answers: [],
+        },
+        {
+            question: "In a discussion, truth should be more important than people’s sensitivities.",
+            answers: [],
+        },
+        {
+            question: "You rarely get carried away by fantasies and ideas.",
+            answers: [1, 2, 3, 4, 5],
+        },
+        {
+            question: "You think that everyone’s views should be respected regardless of whether they are supported by facts or not.",
+            answers: [1, 2, 3, 4, 5],
+        },
+        {
+            question: "You feel more energetic after spending time with a group of people.",
+            answers: [1, 2, 3, 4, 5],
+        },
+    ];
+
+    var quiz = $("#questions");
+    var options = [1, 2, 3, 4, 5];
+
+    for (var i = 0; i < options.length; i++) {
+        var option = $("<option>").html(options[i]);
+        $("#options").append(option)
+        console.log($("#options").append(option));
+    }
+
+    // display all questions in questions div.
+    for (var i = 0; i < questions.length; i++) {
+      quiz.append("<h3>" + questions[i].question + "</h3>");
+      // for each question, display all options to answer as a dropdown select.
+      for (var j = 0; j < questions[i].answers.length; j++) {
+        var dropdown = $("<select>").addClass("form-control");
+        
+        var completeDropdown= dropdown.attr("id", "#options");
+
+        quiz.append(completeDropdown);
+
+            <input type='radio' name='question-" + i +
+        "' value='" + questions[i].answers[j] + "''>" + questions[i].answers[j]);
+      }
+    }
+
+</script>
 </html>
